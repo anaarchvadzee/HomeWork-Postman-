@@ -1,0 +1,1064 @@
+{
+	"info": {
+		"_postman_id": "dd2a71cf-cf2a-4702-89a3-3d9bab7981b4",
+		"name": "HomeWork",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46233137",
+		"_collection_link": "https://anaarchvadze.postman.co/workspace/Ana-Archvadze's-Workspace~4e44d552-536e-4908-8602-e87840e0843d/collection/46233137-dd2a71cf-cf2a-4702-89a3-3d9bab7981b4?action=share&source=collection_link&creator=46233137"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Retrieve a paginated list of all users in the system with advanced filtering and sorting options",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/users?page=1&limit=10&search=john&status=active&roles[ ]=admin&roles[]=user&sortBy=createdAt&sortOrder=desc&uncludeDeleted=false",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "john"
+								},
+								{
+									"key": "status",
+									"value": "active"
+								},
+								{
+									"key": "roles[ ]",
+									"value": "admin"
+								},
+								{
+									"key": "roles[]",
+									"value": "user"
+								},
+								{
+									"key": "sortBy",
+									"value": "createdAt"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								},
+								{
+									"key": "uncludeDeleted",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search users with complex filters and full-text search capabilities",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/users/search?q=john developer&fields[]=name&fields[]=email&minAge=18&maxAge=65&skills[]=javascript&skills[]=react&skills[]=node&location=New York&radius=50",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "john developer"
+								},
+								{
+									"key": "fields[]",
+									"value": "name"
+								},
+								{
+									"key": "fields[]",
+									"value": "email"
+								},
+								{
+									"key": "minAge",
+									"value": "18"
+								},
+								{
+									"key": "maxAge",
+									"value": "65"
+								},
+								{
+									"key": "skills[]",
+									"value": "javascript"
+								},
+								{
+									"key": "skills[]",
+									"value": "react"
+								},
+								{
+									"key": "skills[]",
+									"value": "node"
+								},
+								{
+									"key": "location",
+									"value": "New York"
+								},
+								{
+									"key": "radius",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new user account with the provided information",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"securePassword123\",\r\n  \"roles\": [\r\n    \"user\"\r\n  ],\r\n  \"profile\": {\r\n    \"bio\": \"Software Engineer\",\r\n    \"location\": \"New York\",\r\n    \"avatar\": \"https://avatar.example.com/john.jpg\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/users",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Multiple User Accounts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"users\": [\r\n    {\r\n      \"name\": \"Alice Johnson\",\r\n      \"email\": \"alice@example.com\",\r\n      \"password\": \"password123\",\r\n      \"roles\": [\r\n        \"user\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Bob Wilson\",\r\n      \"email\": \"bob@example.com\",\r\n      \"password\": \"password456\",\r\n      \"roles\": [\r\n        \"admin\"\r\n      ]\r\n    }\r\n  ],\r\n  \"options\": {\r\n    \"sendWelcomeEmail\": true,\r\n    \"skipDuplicates\": false\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/users/bulk",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"securePassword123\",\r\n  \"roles\": [\r\n    \"user\"\r\n  ],\r\n  \"profile\": {\r\n    \"bio\": \"Software Engineer\",\r\n    \"location\": \"New York\",\r\n    \"avatar\": \"https://avatar.example.com/john.jpg\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/users/{id}?id=1&include[]=profiles, roles, permissions",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"{id}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "include[]",
+									"value": "profiles, roles, permissions"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Information For Specific User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Updated\",\r\n  \"email\": \"john.updated@example.com\",\r\n  \"roles\": [\r\n    \"admin\"\r\n  ],\r\n  \"profile\": {\r\n    \"bio\": \"Senior Software Engineer\",\r\n    \"location\": \"San Francisco\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/users/1?id=1",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update specific fields of a user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Patched\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/users/1",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a user from the system",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/users/1",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Retrieve a list of all products with advanced filtering, sorting, and search capabilities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/products?page=1&limit=20&category[]=electronics,books&minPrice=10.00&maxPrice=1000.00&brand[]=apple,samsung&inStock=true&featured=false&rating=4.0&tags[]=bestseller,new&sortBy=price&sortOrder=asc",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "category[]",
+									"value": "electronics,books"
+								},
+								{
+									"key": "minPrice",
+									"value": "10.00"
+								},
+								{
+									"key": "maxPrice",
+									"value": "1000.00"
+								},
+								{
+									"key": "brand[]",
+									"value": "apple,samsung"
+								},
+								{
+									"key": "inStock",
+									"value": "true"
+								},
+								{
+									"key": "featured",
+									"value": "false"
+								},
+								{
+									"key": "rating",
+									"value": "4.0"
+								},
+								{
+									"key": "tags[]",
+									"value": "bestseller,new"
+								},
+								{
+									"key": "sortBy",
+									"value": "price"
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new product to the catalog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"New Product\",\r\n  \"description\": \"Product description\",\r\n  \"category\": \"electronics\",\r\n  \"brand\": \"BrandName\",\r\n  \"price\": 99.99,\r\n  \"stockQuantity\": 100,\r\n  \"tags\": [\r\n    \"new\",\r\n    \"featured\"\r\n  ],\r\n  \"specifications\": {\r\n    \"color\": \"Black\",\r\n    \"weight\": \"2.5kg\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/products",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"securePassword123\",\r\n  \"roles\": [\r\n    \"user\"\r\n  ],\r\n  \"profile\": {\r\n    \"bio\": \"Software Engineer\",\r\n    \"location\": \"New York\",\r\n    \"avatar\": \"https://avatar.example.com/john.jpg\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/products/{id}/reviews?id=1&page=1&limit=10&ratin[]=4.5&verified=true&sortBy=helpful&sortOrder=desc",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"products",
+								"{id}",
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "ratin[]",
+									"value": "4.5"
+								},
+								{
+									"key": "verified",
+									"value": "true"
+								},
+								{
+									"key": "sortBy",
+									"value": "helpful"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Retrieve orders for the authenticated user with filtering and pagination",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"securePassword123\",\r\n  \"roles\": [\r\n    \"user\"\r\n  ],\r\n  \"profile\": {\r\n    \"bio\": \"Software Engineer\",\r\n    \"location\": \"New York\",\r\n    \"avatar\": \"https://avatar.example.com/john.jpg\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/orders?page=1&limit=10&status=pending,shipped&dateFrom=2025-01-01&dateTo=2025-12-31&minAmount=50.00&maxAmount=500.00",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "status",
+									"value": "pending,shipped"
+								},
+								{
+									"key": "dateFrom",
+									"value": "2025-01-01"
+								},
+								{
+									"key": "dateTo",
+									"value": "2025-12-31"
+								},
+								{
+									"key": "minAmount",
+									"value": "50.00"
+								},
+								{
+									"key": "maxAmount",
+									"value": "500.00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place a new order with multiple items",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 29.99\r\n    },\r\n    {\r\n      \"productId\": 2,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 9.99\r\n    }\r\n  ],\r\n  \"shippingAddress\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"zipCode\": \"10001\",\r\n    \"country\": \"USA\"\r\n  },\r\n  \"paymentMethod\": \"credit_card\",\r\n  \"couponCode\": \"SAVE10\"\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/orders",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve detailed tracking information for a specific order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 29.99\r\n    },\r\n    {\r\n      \"productId\": 2,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 9.99\r\n    }\r\n  ],\r\n  \"shippingAddress\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"zipCode\": \"10001\",\r\n    \"country\": \"USA\"\r\n  },\r\n  \"paymentMethod\": \"credit_card\",\r\n  \"couponCode\": \"SAVE10\"\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/orders/{id}/tracking?id=ORD-001",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"orders",
+								"{id}",
+								"tracking"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "ORD-001"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Analytics",
+			"item": [
+				{
+					"name": "Retrieve comprehensive analytics data for dashboard visualization",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 29.99\r\n    },\r\n    {\r\n      \"productId\": 2,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 9.99\r\n    }\r\n  ],\r\n  \"shippingAddress\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"zipCode\": \"10001\",\r\n    \"country\": \"USA\"\r\n  },\r\n  \"paymentMethod\": \"credit_card\",\r\n  \"couponCode\": \"SAVE10\"\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/analytics/dashboard?period=30d&metrics[]=sales,users,orders&groupBy=day&compare=true",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"analytics",
+								"dashboard"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "30d"
+								},
+								{
+									"key": "metrics[]",
+									"value": "sales,users,orders"
+								},
+								{
+									"key": "groupBy",
+									"value": "day"
+								},
+								{
+									"key": "compare",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Retrieve paginated list of notifications for the authenticated user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 29.99\r\n    },\r\n    {\r\n      \"productId\": 2,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 9.99\r\n    }\r\n  ],\r\n  \"shippingAddress\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"zipCode\": \"10001\",\r\n    \"country\": \"USA\"\r\n  },\r\n  \"paymentMethod\": \"credit_card\",\r\n  \"couponCode\": \"SAVE10\"\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/notifications?page=1&limit=20&type[]=order,system,promotion&read=false&priority[]=high,medium",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"notifications"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "type[]",
+									"value": "order,system,promotion"
+								},
+								{
+									"key": "read",
+									"value": "false"
+								},
+								{
+									"key": "priority[]",
+									"value": "high,medium"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark a specific notification as read",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/notifications",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Retrieve hierarchical list of product categories with optional filtering",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 29.99\r\n    },\r\n    {\r\n      \"productId\": 2,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 9.99\r\n    }\r\n  ],\r\n  \"shippingAddress\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"zipCode\": \"10001\",\r\n    \"country\": \"USA\"\r\n  },\r\n  \"paymentMethod\": \"credit_card\",\r\n  \"couponCode\": \"SAVE10\"\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/categories?level=2&parent=1&includeEmpty=false&includeCount=true",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": "2"
+								},
+								{
+									"key": "parent",
+									"value": "1"
+								},
+								{
+									"key": "includeEmpty",
+									"value": "false"
+								},
+								{
+									"key": "includeCount",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Get autocomplete suggestions based on search query with popularity and category info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 29.99\r\n    },\r\n    {\r\n      \"productId\": 2,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 9.99\r\n    }\r\n  ],\r\n  \"shippingAddress\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"zipCode\": \"10001\",\r\n    \"country\": \"USA\"\r\n  },\r\n  \"paymentMethod\": \"credit_card\",\r\n  \"couponCode\": \"SAVE10\"\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/search.suggestions?q=lap&limit=10&categories[]=electronics&ecludeProducts=true",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"search.suggestions"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "lap"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "categories[]",
+									"value": "electronics"
+								},
+								{
+									"key": "ecludeProducts",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wishlist",
+			"item": [
+				{
+					"name": "Retrieve all items in the user's wishlist with product details and availability",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 29.99\r\n    },\r\n    {\r\n      \"productId\": 2,\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 9.99\r\n    }\r\n  ],\r\n  \"shippingAddress\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"zipCode\": \"10001\",\r\n    \"country\": \"USA\"\r\n  },\r\n  \"paymentMethod\": \"credit_card\",\r\n  \"couponCode\": \"SAVE10\"\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/wishlist?page=1&limit=20&sortBy=addedAt&sortOrder=desc",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"wishlist"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "sortBy",
+									"value": "addedAt"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a product to the user's wishlist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 3,\r\n  \"notifications\": {\r\n    \"priceDropEnabled\": true,\r\n    \"backInStockEnabled\": true\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/wishlist",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Authenticate a user and receive an access token.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"password123\"\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout user and invalidate access token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh expired access token using refresh token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"refreshToken\": \"refresh_token_here\"\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/auth/refresh",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register a new user account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"newuser@example.com\",\r\n  \"password\": \"securePassword123\",\r\n  \"confirmPassword\": \"securePassword123\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"acceptTerms\": true,\r\n  \"marketingEmails\": false\r\n}"
+						},
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/api/auth/register",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
